@@ -1,5 +1,8 @@
 package ui;
 
+import models.Message;
+import network.ChatClient;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,17 +11,29 @@ public class InterfaceManager {
   private ChatWindow chatWindow;
   private LoginWindow loginWindow;
   private JFrame frame;
+  private ChatClient client;
 
-  public void loadRoom() {
-    loginWindow = null;
+  public void chatWindow() {
     sessionActive = true;
-    chatWindow = new ChatWindow(frame);
+    chatWindow = new ChatWindow(frame, client);
   }
 
-  public void exitRoom() {
-    chatWindow = null;
+  public void loginPage() {
     sessionActive = false;
-    loginWindow = new LoginWindow(frame);
+    loginWindow = new LoginWindow(frame, client);
+  }
+
+  public InterfaceManager(ChatClient client) {
+    frame = new JFrame();
+
+    // JFrame Config
+    frame.setTitle("LOOPED");
+    frame.setSize(500,700);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setLayout(new BorderLayout());
+    frame.setResizable(false);
+
+    chatWindow();
   }
 
   public InterfaceManager() {
@@ -31,6 +46,16 @@ public class InterfaceManager {
     frame.setLayout(new BorderLayout());
     frame.setResizable(false);
 
-    loadRoom();
+    loginPage();
+  }
+
+  public void setClient(ChatClient client) {
+    this.client = client;
+  }
+
+  public void displayMessage(Message message) {
+    chatWindow.displayMessage(message);
+    frame.repaint();
+    frame.revalidate();
   }
 }

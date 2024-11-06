@@ -1,5 +1,6 @@
 package ui;
 
+import models.Message;
 import network.ChatClient;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ import java.awt.*;
 
 public class ChatWindow {
   private JPanel windowPanel;
+  private ChatClient client;
 
   private JPanel topPanel;
   private JLabel logoLabel;
@@ -20,7 +22,8 @@ public class ChatWindow {
   private JTextField messageField;
   private JButton sendButton;
 
-  public ChatWindow(JFrame frame) {
+  public ChatWindow(JFrame frame, ChatClient client) {
+    this.client = client;
     frame.getContentPane().removeAll();
 
     GridBagConstraints gbc = new GridBagConstraints();
@@ -44,7 +47,7 @@ public class ChatWindow {
 
     logoutButton = new JButton("#");
     logoutButton.addActionListener(e -> {
-      ChatClient.serverLogout();
+      client.serverLogout();
     });
 
     topPanel.add(logoLabel);
@@ -119,14 +122,14 @@ public class ChatWindow {
   private void sendMessage() {
     String message = messageField.getText().trim();
     if(!message.isEmpty()) {
-      displayMessage((message));
+      client.sendMessage(message);
       messageField.setText("");
     }
 
     // TODO: Send Message to server for final version
   }
 
-  private void displayMessage(String message) {
+  public void displayMessage(Message message) {
     // TODO: Improve this implementation with Message, Time, UserName etc...
 
     JPanel msgPanel = new JPanel();
@@ -135,10 +138,9 @@ public class ChatWindow {
     msg.setWrapStyleWord(true);
     msg.setEditable(false);
 
-    msg.setText(message);
+    msg.setText(message.getMessageContent() + '\n' + message.getSender());
     msgPanel.add(msg);
 
     chatArea.add(msgPanel);
-    System.out.println(chatArea.getSize());
   }
 }

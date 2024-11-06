@@ -7,6 +7,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class LoginWindow {
+  private ChatClient client;
+
   private JLabel logoLabel;
   private ImageIcon logo;
 
@@ -19,7 +21,8 @@ public class LoginWindow {
   private JPanel connectPanel;
   private JButton connectButton;
 
-  LoginWindow(JFrame frame) {
+  LoginWindow(JFrame frame, ChatClient client) {
+    this.client = client;
     frame.getContentPane().removeAll();
 
     connectPanel = new JPanel();
@@ -75,7 +78,7 @@ public class LoginWindow {
       String port = ((JTextField) portPanel.getComponent(0)).getText();
       String ip = ((JTextField) addressPanel.getComponent(0)).getText();
 
-      ChatClient.serverLogin(username, port, ip);
+      client.serverLogin(username, port, ip);
     });
 
     frame.add(connectPanel, BorderLayout.CENTER);

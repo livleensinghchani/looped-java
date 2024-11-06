@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5ad6b04-15ef-4db6-88ae-fbf898fcd95b" name="Changes" comment="WIP Login Manager">
+    <list default="true" id="f5ad6b04-15ef-4db6-88ae-fbf898fcd95b" name="Changes" comment="User">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/network/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/network/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/ChatServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/ChatWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ChatWindow.java" afterDir="false" />
@@ -138,13 +140,58 @@
       <option name="project" value="LOCAL" />
       <updated>1730753417945</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="UI Partial DOONE">
+      <option name="closed" value="true" />
+      <created>1730920738386</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730920738386</updated>
+    </task>
+    <task id="LOCAL-00006" summary="User">
+      <option name="closed" value="true" />
+      <created>1730920886964</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730920886964</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="INIT" />
     <MESSAGE value="Base Ready" />
     <MESSAGE value="WIP Login Manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP Login Manager" />
+    <MESSAGE value="UI Partial DOONE" />
+    <MESSAGE value="User" />
+    <option name="LAST_COMMIT_MESSAGE" value="User" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ui/LoginWindow.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ui/LoginWindow.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
