@@ -31,6 +31,6 @@ public class InterfaceManager {
     frame.setLayout(new BorderLayout());
     frame.setResizable(false);
 
-    exitRoom();
+    loadRoom();
   }
 }

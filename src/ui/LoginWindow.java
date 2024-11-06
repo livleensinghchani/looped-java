@@ -1,28 +1,27 @@
 package ui;
 
+import network.ChatClient;
+
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.sql.ConnectionBuilder;
 
 public class LoginWindow {
   private JLabel logoLabel;
   private ImageIcon logo;
 
   private JPanel userPanel;
-  private JTextField userField;
 
   private JPanel addressPanel;
-  private JTextField addressField;
 
   private JPanel portPanel;
-  private JTextField portField;
 
   private JPanel connectPanel;
   private JButton connectButton;
 
   LoginWindow(JFrame frame) {
+    frame.getContentPane().removeAll();
+
     connectPanel = new JPanel();
     connectPanel.setLayout(new GridBagLayout());
 
@@ -69,6 +68,15 @@ public class LoginWindow {
 
     connectButton.setBackground(Color.green);
     connectButton.setPreferredSize(new Dimension(200, 60));
+
+    // TODO: Add server connection so it toggles it
+    connectButton.addActionListener(e -> {
+      String username = ((JTextField) userPanel.getComponent(0)).getText();
+      String port = ((JTextField) portPanel.getComponent(0)).getText();
+      String ip = ((JTextField) addressPanel.getComponent(0)).getText();
+
+      ChatClient.serverLogin(username, port, ip);
+    });
 
     frame.add(connectPanel, BorderLayout.CENTER);
     frame.add(connectButton, BorderLayout.SOUTH);

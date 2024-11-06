@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5ad6b04-15ef-4db6-88ae-fbf898fcd95b" name="Changes" comment="Base Ready">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/InterfaceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/LoginWindow.java" afterDir="false" />
+    <list default="true" id="f5ad6b04-15ef-4db6-88ae-fbf898fcd95b" name="Changes" comment="WIP Login Manager">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/network/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ChatWindow.form" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/ChatWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ChatWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/InterfaceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/InterfaceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/LoginWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "livleensinghchani"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;livleensinghchani&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/livleensinghchani/looped-java.git",
-    "accountId": "0529087e-f276-461a-ae6f-6ad28b8e5715"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/livleensinghchani/looped-java.git&quot;,
+    &quot;accountId&quot;: &quot;0529087e-f276-461a-ae6f-6ad28b8e5715&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -51,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ChatClient.executor": "Run",
     "Application.ChatServer.executor": "Run",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -63,7 +63,20 @@
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ChatClient">
+    <configuration name="ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="network.ChatClient" />
+      <module name="looped-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="network.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="network.ChatServer" />
       <module name="looped-java" />
@@ -79,6 +92,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChatClient" />
         <item itemvalue="Application.ChatServer" />
       </list>
     </recent_temporary>
@@ -108,12 +122,29 @@
       <option name="project" value="LOCAL" />
       <updated>1730742620496</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="WIP Login Manager">
+      <option name="closed" value="true" />
+      <created>1730753409940</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730753409940</updated>
+    </task>
+    <task id="LOCAL-00004" summary="WIP Login Manager">
+      <option name="closed" value="true" />
+      <created>1730753417945</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730753417945</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="INIT" />
     <MESSAGE value="Base Ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base Ready" />
+    <MESSAGE value="WIP Login Manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP Login Manager" />
   </component>
 </project>
