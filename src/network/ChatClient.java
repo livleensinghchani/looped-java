@@ -60,7 +60,7 @@ public class ChatClient {
   private void launchInterface() {
     ui = new InterfaceManager();
     ui.setClient(this);
-    ui.loginPage();
+    ui.loginWindow();
   }
 
   public void serverLogin(String username, String port, String ip) {
@@ -71,7 +71,7 @@ public class ChatClient {
   }
 
   public void serverLogout() {
-    ui.loginPage();
+    ui.loginWindow();
     try {
       out.close();
       this.socket.close();

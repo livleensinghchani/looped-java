@@ -17,6 +17,7 @@ public class ChatWindow {
 
   private JPanel chatPanel;
   private JPanel chatArea;
+  JScrollPane scrollPane;
 
   private JPanel messagePanel;
   private JTextField messageField;
@@ -31,21 +32,30 @@ public class ChatWindow {
 
     windowPanel = new JPanel();
     windowPanel.setLayout(new GridBagLayout());
+    windowPanel.setBackground(Colors.DB);
 
     // Top Panel
     topPanel = new JPanel();
+    topPanel.setBackground(Colors.DB);
 
     logoLabel = new JLabel();
-    logo = new ImageIcon("appLogo.png");
-    Image image = logo.getImage();
-    image = image.getScaledInstance(90,90,Image.SCALE_SMOOTH);
-    logo.setImage(image);
+    logo = new ImageIcon("assets/appLogo.png");
+    Image logoScale = logo.getImage();
+    logoScale = logoScale.getScaledInstance(90,90,Image.SCALE_SMOOTH);
+    logo.setImage(logoScale);
     logoLabel.setIcon(logo);
 
     logoLabel.setVerticalAlignment(SwingConstants.CENTER);
     logoLabel.setHorizontalAlignment(SwingConstants.LEFT);
 
-    logoutButton = new JButton("#");
+    logoutButton = new JButton();
+    ImageIcon logoutIcon = new ImageIcon("assets/logout.png");
+    Image logoutScale = logoutIcon.getImage();
+    logoutScale = logoutScale.getScaledInstance(25,25,Image.SCALE_SMOOTH);
+    logoutIcon.setImage(logoutScale);
+    logoutButton.setIcon(logoutIcon);
+    logoutButton.setBackground(Colors.TQ);
+
     logoutButton.addActionListener(e -> {
       client.serverLogout();
     });
@@ -63,6 +73,7 @@ public class ChatWindow {
     // Separator Line For Top Panel
     JSeparator separatorLine = new JSeparator(SwingConstants.HORIZONTAL);
     separatorLine.setPreferredSize(new Dimension(50,5));
+    separatorLine.setBackground(Colors.TQ);
 
     gbc.gridx = 0;
     gbc.gridy = 1;
@@ -72,16 +83,19 @@ public class ChatWindow {
 
     // JP Chat Panel
     chatPanel = new JPanel();
+    chatPanel.setBackground(Colors.DB);
+
     chatArea = new JPanel();
+    chatArea.setBackground(Colors.DB);
     chatArea.setLayout(new BoxLayout(chatArea, BoxLayout.Y_AXIS));
 
-    for(int i = 0; i < 30; i++) {
-      chatArea.add(new JPanel());
-    }
+    chatArea.add(Box.createVerticalStrut(400));
 
-    JScrollPane scrollPane = new JScrollPane(chatArea);
-    scrollPane.setPreferredSize(new Dimension(420,480));
-    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    scrollPane = new JScrollPane(chatArea);
+    scrollPane.setBackground(Colors.DB);
+    scrollPane.setPreferredSize(new Dimension(425,480));
+    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+    scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
     chatPanel.add(scrollPane);
 
@@ -93,11 +107,22 @@ public class ChatWindow {
 
     // JP Message Panel
     messagePanel = new JPanel();
+    messagePanel.setBackground(Colors.DB);
 
     messageField = new JTextField(25);
     messageField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+    messageField.setBackground(Colors.DB);
+    messageField.setForeground(Colors.CR);
+    messageField.setPreferredSize(new Dimension(50,45));
+    messageField.setBorder(BorderFactory.createLineBorder(Colors.TQ, 2));
 
-    sendButton = new JButton("S E N D");
+    sendButton = new JButton();
+    ImageIcon sendIcon = new ImageIcon("assets/message.png");
+    Image sendScale = sendIcon.getImage();
+    sendScale = sendScale.getScaledInstance(25,35,Image.SCALE_SMOOTH);
+    sendIcon.setImage(sendScale);
+    sendButton.setIcon(sendIcon);
+    sendButton.setBackground(Colors.TQ);
     sendButton.addActionListener(e -> {
       sendMessage();
       frame.revalidate();
@@ -125,22 +150,84 @@ public class ChatWindow {
       client.sendMessage(message);
       messageField.setText("");
     }
-
-    // TODO: Send Message to server for final version
   }
 
   public void displayMessage(Message message) {
-    // TODO: Improve this implementation with Message, Time, UserName etc...
-
     JPanel msgPanel = new JPanel();
+    msgPanel.setBackground(Colors.DB);
+    msgPanel.setLayout(new BorderLayout());
+
+    JTextArea username = new JTextArea(1,25);
+    username.setText(message.getSender());
+    username.setBackground(Colors.DB);
+    username.setFont(new Font("Monospace", Font.BOLD, 18));
+    username.setForeground(Colors.TQ);
+    username.setEditable(false);
+    msgPanel.add(username, BorderLayout.NORTH);
+
+    JPanel textArea = new JPanel();
+    textArea.setBackground(Colors.DB);
+    textArea.setLayout(new BorderLayout());
+
+    JPanel vSeparator = new JPanel();
+    vSeparator.setPreferredSize(new Dimension(4,0));
+    vSeparator.setBackground(Colors.TQ);
+    textArea.add(vSeparator, BorderLayout.WEST);
+
     JTextArea msg = new JTextArea(1,30);
+    msg.setBackground(Colors.DB);
+    msg.setForeground(Colors.CR);
+    msg.setFont(new Font("Monospace", Font.PLAIN, 16));
+
     msg.setLineWrap(true);
     msg.setWrapStyleWord(true);
     msg.setEditable(false);
 
-    msg.setText(message.getMessageContent() + '\n' + message.getSender());
-    msgPanel.add(msg);
+    msg.setText(message.getMessageContent());
+    textArea.add(msg, BorderLayout.CENTER);
 
-    chatArea.add(msgPanel);
+    msgPanel.add(textArea, BorderLayout.CENTER);
+
+    if(!transientText(message)) {
+      chatArea.add(msgPanel);
+      addPadding();
+    }
+
+    JScrollBar verticalbar = scrollPane.getVerticalScrollBar();
+    verticalbar.setValue(verticalbar.getMaximum()+5);
+
+    scrollPane.repaint();
+    scrollPane.revalidate();
+
+    chatArea.repaint();
+    chatArea.revalidate();
+  }
+
+  void addPadding() {
+    JPanel panel = new JPanel();
+    panel.setBackground(Colors.DB);
+    panel.setPreferredSize(new Dimension(40,40));
+    chatArea.add(panel);
+  }
+
+  boolean transientText(Message message) {
+    int stackSize = chatArea.getComponentCount();
+
+    if(stackSize-2 < 0) {
+      return false;
+    }
+
+    JPanel targetMsg = (JPanel) chatArea.getComponent(stackSize-2);
+
+    JTextArea username = (JTextArea) targetMsg.getComponent(0);
+    JPanel textPanel = (JPanel) targetMsg.getComponent(1);
+    JTextArea text = (JTextArea) textPanel.getComponent(1);
+
+    if(username.getText().equals(message.getSender())) {
+      text.append('\n'+message.getMessageContent());
+    } else {
+      return false;
+    }
+    return true;
   }
 }

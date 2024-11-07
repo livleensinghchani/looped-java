@@ -18,7 +18,7 @@ public class InterfaceManager {
     chatWindow = new ChatWindow(frame, client);
   }
 
-  public void loginPage() {
+  public void loginWindow() {
     sessionActive = false;
     loginWindow = new LoginWindow(frame, client);
   }
@@ -46,7 +46,7 @@ public class InterfaceManager {
     frame.setLayout(new BorderLayout());
     frame.setResizable(false);
 
-    loginPage();
+    loginWindow();
   }
 
   public void setClient(ChatClient client) {
@@ -59,3 +59,4 @@ public class InterfaceManager {
     frame.revalidate();
   }
 }
+

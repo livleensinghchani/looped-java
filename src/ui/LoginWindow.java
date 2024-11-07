@@ -4,9 +4,11 @@ import network.ChatClient;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 
-public class LoginWindow {
+public class LoginWindow extends Colors {
   private ChatClient client;
 
   private JLabel logoLabel;
@@ -27,13 +29,14 @@ public class LoginWindow {
 
     connectPanel = new JPanel();
     connectPanel.setLayout(new GridBagLayout());
+    connectPanel.setBackground(Colors.DB);
 
     GridBagConstraints gbc = new GridBagConstraints();
     gbc.fill = GridBagConstraints.HORIZONTAL;
     gbc.insets = new Insets(2,2,2,2);
 
     logoLabel = new JLabel();
-    logo = new ImageIcon("appLogo.png");
+    logo = new ImageIcon("assets/appLogo.png");
     Image image = logo.getImage();
     image = image.getScaledInstance(300,300,Image.SCALE_SMOOTH);
     logo.setImage(image);
@@ -65,14 +68,25 @@ public class LoginWindow {
     gbc.weighty = 0.2;
     connectPanel.add(portPanel, gbc);
 
+    // Made with LOVE❤️
+    JLabel love = new JLabel("MADE WITH ❤️");
+    love.setHorizontalAlignment(SwingConstants.CENTER);
+    love.setVerticalAlignment(SwingConstants.CENTER);
+    love.setForeground(Colors.CR);
+
+    gbc.gridy = 4;
+    gbc.weighty = 0.2;
+    connectPanel.add(love, gbc);
+
+    frame.add(connectPanel, BorderLayout.CENTER);
+
     // Connect Button
     connectButton = new JButton("C O N N E C T");
     connectButton.setFont(new Font("SansSerif", Font.BOLD, 18));
 
-    connectButton.setBackground(Color.green);
-    connectButton.setPreferredSize(new Dimension(200, 60));
+    connectButton.setBackground(Colors.TQ);
+    connectButton.setPreferredSize(new Dimension(200, 80));
 
-    // TODO: Add server connection so it toggles it
     connectButton.addActionListener(e -> {
       String username = ((JTextField) userPanel.getComponent(0)).getText();
       String port = ((JTextField) portPanel.getComponent(0)).getText();
@@ -80,8 +94,6 @@ public class LoginWindow {
 
       client.serverLogin(username, port, ip);
     });
-
-    frame.add(connectPanel, BorderLayout.CENTER);
     frame.add(connectButton, BorderLayout.SOUTH);
 
     frame.setVisible(true);
@@ -90,10 +102,18 @@ public class LoginWindow {
   private JPanel createTitledPanel(String name) {
     JPanel panel = new JPanel();
     Border line = BorderFactory.createTitledBorder(name);
+    ((TitledBorder) line).setTitleColor(Colors.CR);
+
     panel.setBorder(line);
     JTextField textField = new JTextField(25);
-    textField.setFont(new Font("SansSerif", Font.PLAIN, 16));
+    textField.setFont(new Font("Monospace", Font.BOLD, 16));
+    textField.setForeground(Colors.CR);
+    textField.setBackground(Colors.DB);
+    textField.setBorder(new EmptyBorder(0,0,0,0));
+
     panel.add(textField, BorderLayout.CENTER);
+    panel.setBackground(Colors.DB);
+
     return panel;
   }
 }
