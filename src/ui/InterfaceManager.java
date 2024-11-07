@@ -40,7 +40,7 @@ public class InterfaceManager {
     frame = new JFrame();
 
     // JFrame Config
-    frame.setTitle("LOOPED");
+    frame.setTitle("LOOP");
     frame.setSize(500,700);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setLayout(new BorderLayout());

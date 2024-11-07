@@ -4,6 +4,8 @@ import models.Message;
 import network.ChatClient;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class ChatWindow {
@@ -170,11 +172,8 @@ public class ChatWindow {
     textArea.setLayout(new BorderLayout());
 
     JPanel vSeparator = new JPanel();
-
-    JPanel padding = new JPanel();
-    padding.setBackground(Colors.CR);
-    padding.setPreferredSize(new Dimension(4,0));
-    vSeparator.add(padding);
+    vSeparator.setBackground(Colors.TQ);
+    vSeparator.setPreferredSize(new Dimension(4,0));
 
     textArea.add(vSeparator, BorderLayout.WEST);
 
@@ -188,7 +187,7 @@ public class ChatWindow {
     msg.setEditable(false);
 
     msg.setText(message.getMessageContent());
-    textArea.add(msg, BorderLayout.CENTER);
+    textArea.add(msg, BorderLayout.EAST);
 
     msgPanel.add(textArea, BorderLayout.CENTER);
 
