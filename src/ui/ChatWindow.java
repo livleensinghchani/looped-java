@@ -170,8 +170,12 @@ public class ChatWindow {
     textArea.setLayout(new BorderLayout());
 
     JPanel vSeparator = new JPanel();
-    vSeparator.setPreferredSize(new Dimension(4,0));
-    vSeparator.setBackground(Colors.TQ);
+
+    JPanel padding = new JPanel();
+    padding.setBackground(Colors.CR);
+    padding.setPreferredSize(new Dimension(4,0));
+    vSeparator.add(padding);
+
     textArea.add(vSeparator, BorderLayout.WEST);
 
     JTextArea msg = new JTextArea(1,30);

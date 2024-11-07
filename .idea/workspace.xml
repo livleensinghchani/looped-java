@@ -59,9 +59,9 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/looped-java",
+    "last_opened_file_path": "D:/looped-java",
     "onboarding.tips.debug.path": "/run/media/chani/DevDrive/JAVA/looped-java/src/Main.java",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RunManager" selected="Application.ChatClient">
@@ -190,19 +190,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/ChatWindow.java</url>
-          <line>219</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/ChatWindow.java</url>
-          <line>221</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ui/ChatWindow.java</url>
-          <line>222</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/ui/LoginWindow.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
