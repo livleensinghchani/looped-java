@@ -154,7 +154,7 @@ public class ChatWindow {
     }
   }
 
-  public void displayMessage(Message message) {
+  public void displayMessage(Message message, JFrame frame) {
     JPanel msgPanel = new JPanel();
     msgPanel.setBackground(Colors.DB);
     msgPanel.setLayout(new BorderLayout());
@@ -178,7 +178,7 @@ public class ChatWindow {
 
     textArea.add(vSeparator, BorderLayout.WEST);
 
-    JTextArea msg = new JTextArea(1,30);
+    JTextArea msg = new JTextArea(1,31);
     msg.setBackground(Colors.DB);
     msg.setForeground(Colors.CR);
     msg.setFont(new Font("Monospace", Font.PLAIN, 16));
@@ -197,20 +197,26 @@ public class ChatWindow {
       addPadding();
     }
 
-    JScrollBar verticalbar = scrollPane.getVerticalScrollBar();
-    verticalbar.setValue(verticalbar.getMaximum()+5);
-
-    scrollPane.repaint();
-    scrollPane.revalidate();
+    frame.repaint();
+    frame.revalidate();
 
     chatArea.repaint();
     chatArea.revalidate();
+
+    JScrollBar verticalbar = scrollPane.getVerticalScrollBar();
+    verticalbar.setValue(verticalbar.getMaximum());
+
+    frame.repaint();
+    frame.revalidate();
+
+    scrollPane.repaint();
+    scrollPane.revalidate();
   }
 
   void addPadding() {
     JPanel panel = new JPanel();
     panel.setBackground(Colors.DB);
-    panel.setPreferredSize(new Dimension(40,40));
+    panel.setPreferredSize(new Dimension(40,20));
     chatArea.add(panel);
   }
 

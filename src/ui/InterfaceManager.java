@@ -54,7 +54,7 @@ public class InterfaceManager {
   }
 
   public void displayMessage(Message message) {
-    chatWindow.displayMessage(message);
+    chatWindow.displayMessage(message, frame);
     frame.repaint();
     frame.revalidate();
   }
