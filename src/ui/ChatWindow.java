@@ -161,6 +161,7 @@ public class ChatWindow {
 
     JTextArea username = new JTextArea(1,25);
     username.setText(message.getSender());
+    System.out.println(message.getSender());
     username.setBackground(Colors.DB);
     username.setFont(new Font("Monospace", Font.BOLD, 18));
     username.setForeground(Colors.TQ);

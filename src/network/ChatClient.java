@@ -53,8 +53,14 @@ public class ChatClient {
   }
 
   public static void main(String[] args) {
-    ChatClient chatClient = new ChatClient();
-    chatClient.launchInterface();
+    ChatClient chatClient1 = new ChatClient();
+    chatClient1.launchInterface();
+
+    ChatClient chatClient2 = new ChatClient();
+    chatClient2.launchInterface();
+
+    ChatClient chatClient3 = new ChatClient();
+    chatClient3.launchInterface();
   }
 
   private void launchInterface() {
@@ -81,6 +87,6 @@ public class ChatClient {
   }
 
   public Message createMessage(String message, String username) {
-    return new Message(user.getUsername(), message);
+    return new Message(username, message);
   }
 }
