@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="loopClient">
+    <output-path>$PROJECT_DIR$/out/artifacts/loopClient</output-path>
+    <root id="archive" name="looped-java.jar">
+      <element id="module-output" name="looped-java" />
+    </root>
+  </artifact>
+</component>
